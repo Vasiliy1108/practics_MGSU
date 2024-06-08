@@ -125,19 +125,23 @@ Console::ForegroundColor=ConsoleColor::Magenta;
 //fscanf(in,"%d",&NC);
 
 num_c=count_strok ("for_kurs.txt");
-printf("Количество видеокарт в базе данных: %d ",num_c);
 viduha=(struct v*)malloc(num_c*sizeof(struct v));
-
+for(i=0;i<num_c;i++) {fscanf(in,"%s%s%d%d%d%s%d",viduha[i].proiz,viduha[i].name,&viduha[i].coris,&viduha[i].freq,&viduha[i].mimore,viduha[i].data,&viduha[i].papuga);}
+for(i=0;i<num_c;i++) {fprintf(out,"%s %s %d %d %d %s %d \n",viduha[i].proiz,viduha[i].name,viduha[i].coris,viduha[i].freq,viduha[i].mimore,viduha[i].data,viduha[i].papuga);}
+//сохранение текущих данных
 point1:;
+printf("Количество видеокарт в базе данных: %d ",num_c);
 Console::BackgroundColor=ConsoleColor::Magenta;
 Console::ForegroundColor=ConsoleColor::White;
 printf("\nПроизводитель        Модель      Кол-во_ядер    Частота(МГЦ)     Объем_памяти(МБ)    Дата_выхода      G             ");
 Console::BackgroundColor=ConsoleColor::Black;
 Console::ForegroundColor=ConsoleColor::Magenta;
-for(i=0;i<num_c;i++) {fscanf(in,"%s%s%d%d%d%s%d",viduha[i].proiz,viduha[i].name,&viduha[i].coris,&viduha[i].freq,&viduha[i].mimore,viduha[i].data,&viduha[i].papuga);}
+
+
 for(i=0;i<num_c;i++) {printf("\n%-20s %-15s %-15d %-15d %-15d %-15s %-15d",viduha[i].proiz,viduha[i].name,viduha[i].coris,viduha[i].freq,viduha[i].mimore,viduha[i].data,viduha[i].papuga);}
-Console::BackgroundColor=ConsoleColor::Magenta;
+
 Console::ForegroundColor=ConsoleColor::White;
+Console::BackgroundColor=ConsoleColor::Magenta;
 printf("\nДля перехода на следующую страницу нажмите Enter                                                                    ");
 char c=312;
 int y11=0;
